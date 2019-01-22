@@ -1,4 +1,5 @@
 require 'pry'
+require 'checkout'
 
 describe Checkout do
   before do
