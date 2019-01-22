@@ -25,7 +25,7 @@ class Discount
     @offer.select_all_alike(order, product_code).count >= MIN_ORDER_SR1
   end
 
-  def more_or_equal_coffee(order, product_code)
+  def more_or_equal_coffee?(order, product_code)
     @offer.select_all_alike(order, product_code).count >= MIN_ORDER_CF1
   end
 
@@ -34,7 +34,7 @@ class Discount
       @offer.buy_one_get_one_free(order, GREEN_TEA)
     elsif more_or_equal_strawberries?(order, STRAWBERRIES)
       @offer.reduce_price_by(order, STRAWBERRIES, STRAWBERRY_DISCOUNT)
-    elsif more_or_equal_coffee(order, COFFEE)
+    elsif more_or_equal_coffee?(order, COFFEE)
       @offer.reduce_price_by(order, COFFEE, COFFEE_DISCOUNT)
     else
       order.reduce(0) { |sum, item| sum + item.price }
