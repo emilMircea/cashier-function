@@ -70,7 +70,14 @@ describe Checkout do
       expect(@co.total).to eq(16.61)
     end
 
-
+    it 'should discount correctly three CF1 plus other items' do
+      @co.scan(gr1)
+      @co.scan(cf1)
+      @co.scan(sr1) 
+      @co.scan(cf1)
+      @co.scan(cf1)
+      expect(@co.total).to eq(30.57)
+    end
   end
 
 end
