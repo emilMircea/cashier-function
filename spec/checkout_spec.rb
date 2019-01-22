@@ -1,5 +1,6 @@
 require 'pry'
 require 'checkout'
+require 'item'
 
 describe Checkout do
   before do
@@ -15,6 +16,15 @@ describe Checkout do
   describe 'initialise' do
     it 'starts with an empty basket' do
       expect(@co.basket).to eq([])
+    end
+  end
+
+  describe 'scan' do
+    it 'adds items to the shopping cart' do
+      @co.scan(gr1)
+      @co.scan(sr1)
+      @co.scan(cf1)
+      expect(@co.basket).to eq([gr1, sr1, cf1])
     end
   end
 
