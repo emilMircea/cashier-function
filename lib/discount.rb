@@ -13,11 +13,9 @@ class Discount
   STRAWBERRIES = 'SR1'
   COFFEE = 'CF1'
 
-
   def initialize(offer = Offer.new)
     @offer = offer
   end
-
 
   def more_than_one?(order, product_code)
     @offer.select_all_alike(order, product_code).count > MIN_ORDER_GR1
