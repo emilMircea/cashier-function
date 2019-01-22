@@ -8,4 +8,8 @@ class Checkout
     @discounts = discounts
     @basket = []
   end
+
+  def scan(item)
+    @basket << item
+  end
 end
