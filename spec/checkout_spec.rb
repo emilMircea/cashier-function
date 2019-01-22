@@ -46,6 +46,14 @@ describe Checkout do
           cf1.price
         )
     end
+
+    it 'should discount correctly two GR1' do
+      @co.scan(gr1)
+      @co.scan(gr1)
+      expect(@co.total).to eq(3.11)
+    end
+
+
   end
 
 end
