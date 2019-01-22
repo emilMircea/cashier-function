@@ -28,4 +28,11 @@ describe Checkout do
     end
   end
 
+  describe "total" do
+    it 'should calculate price for one item in cart' do
+      @co.scan(gr1)
+      expect(@co.total).to eq(gr1.price)
+    end
+  end
+
 end

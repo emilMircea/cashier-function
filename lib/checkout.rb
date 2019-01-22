@@ -12,4 +12,8 @@ class Checkout
   def scan(item)
     @basket << item
   end
+
+  def total
+    total = @basket.reduce(0) { |sum, item| sum + item.price }
+  end
 end
