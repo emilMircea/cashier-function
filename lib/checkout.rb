@@ -1,11 +1,11 @@
 require 'pry'
-require_relative 'discounts'
+require_relative 'discount'
 
 class Checkout
   attr_accessor :basket
 
-  def initialize(discounts = Discounts.new)
-    @discounts = discounts
+  def initialize(discount = Discount.new)
+    @discount = discount
     @basket = []
   end
 
@@ -14,6 +14,6 @@ class Checkout
   end
 
   def total
-    total = @basket.reduce(0) { |sum, item| sum + item.price }
+    @discount.apply_discounts(@basket)
   end
 end
