@@ -33,6 +33,19 @@ describe Checkout do
       @co.scan(gr1)
       expect(@co.total).to eq(gr1.price)
     end
+
+    it 'should calculate total price for many items in cart' do
+      @co.scan(gr1)
+      @co.scan(sr1)
+      @co.scan(cf1)
+
+      expect(@co.total)
+        .to eq(
+          gr1.price +
+          sr1.price +
+          cf1.price
+        )
+    end
   end
 
 end
