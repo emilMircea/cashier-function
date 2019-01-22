@@ -53,6 +53,23 @@ describe Checkout do
       expect(@co.total).to eq(3.11)
     end
 
+    it 'should discount correctly three GR1 plus other items' do
+      @co.scan(gr1)
+      @co.scan(sr1)
+      @co.scan(gr1)
+      @co.scan(gr1)
+      @co.scan(cf1)
+      expect(@co.total).to eq(22.45)
+    end
+
+    it 'should discount correctly three SR1 plus other items' do
+      @co.scan(sr1)
+      @co.scan(sr1)
+      @co.scan(gr1)
+      @co.scan(sr1)
+      expect(@co.total).to eq(16.61)
+    end
+
 
   end
 
