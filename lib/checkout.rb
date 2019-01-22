@@ -1,5 +1,6 @@
 require 'pry'
 require_relative 'discount'
+require_relative 'item'
 
 class Checkout
   attr_accessor :basket
